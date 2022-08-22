@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from "./Header.js"
 import Dummy from "./Dummy.js"
+import SolutionLetters from './SolutionLetters.js';
 // api
 import getWordFromApi from '../services/api';
 // styles
@@ -46,17 +47,7 @@ function App() {
     return errorLetters.length;
   };
 
-  const renderSolutionLetters = () => {
-    const wordLetters = word.split('');
-    return wordLetters.map((letter, index) => {
-      const exists = userLetters.includes(letter.toLocaleLowerCase());
-      return (
-        <li key={index} className='letter'>
-          {exists ? letter : ''}
-        </li>
-      );
-    });
-  };
+
 
   const renderErrorLetters = () => {
     const errorLetters = userLetters.filter(
@@ -88,10 +79,8 @@ function App() {
 
       <main className='main'>
         <section>
-          <div className='solution'>
-            <h2 className='title'>Solución:</h2>
-            <ul className='letters'>{renderSolutionLetters()}</ul>
-          </div>
+          <SolutionLetters word={word} userLetters={userLetters} />
+
           <div className='error'>
             <h2 className='title'>Letras falladas:</h2>
             <ul className='letters'>{renderErrorLetters()}</ul>
