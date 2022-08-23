@@ -1,3 +1,4 @@
+import "../styles/Dummy.scss";
 function Dummy(props) {
     return (
         <section className={`dummy error-${props.numberOfErrors}`}>
