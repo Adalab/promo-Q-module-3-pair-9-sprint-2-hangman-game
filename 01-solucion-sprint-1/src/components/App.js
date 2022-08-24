@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+
 import Header from "./Header.js"
 import Dummy from "./Dummy.js"
 import SolutionLetters from './SolutionLetters.js';
@@ -12,6 +14,8 @@ import '../styles/Form.scss';
 import '../styles/Header.scss';
 import ErrorLetters from './ErrorLetters.js';
 import Form from './Form.js';
+import Footer from './Footer.js';
+import Options from './Options.js';
 
 function App() {
   const [word, setWord] = useState('');
@@ -64,6 +68,20 @@ function App() {
         <Dummy numberOfErrors={getNumberOfErrors()} />
 
       </main>
+      <Footer />
+      <Routes>
+        //esto hay que revisarlo//
+        <Route path="/options" element={<Options />} />
+      </Routes>
+
+      <nav>
+        <ul>
+          <li>
+            <Link>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
