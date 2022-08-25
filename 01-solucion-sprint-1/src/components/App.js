@@ -16,6 +16,7 @@ import ErrorLetters from './ErrorLetters.js';
 import Form from './Form.js';
 import Footer from './Footer.js';
 import Options from './Options.js';
+import Main from './Main.js';
 
 function App() {
   const [word, setWord] = useState('');
@@ -57,31 +58,15 @@ function App() {
       <Header />
 
       <main className='main'>
-        <section>
-          <SolutionLetters word={word} userLetters={userLetters} />
-          <ErrorLetters word={word} userLetters={userLetters} />
-
-
-          <Form lastLetter={lastLetter}
-            handleLastLetter={handleLastLetter} />
-        </section>
+        <Routes>
+          <Route path="/" element={<Main word={word} userLetters={userLetters}
+            lastLetter={lastLetter}
+            handleLastLetter={handleLastLetter} />} />
+          <Route path="/options" element={<Options />} />
+        </Routes>
         <Dummy numberOfErrors={getNumberOfErrors()} />
-
       </main>
       <Footer />
-      <Routes>
-        //esto hay que revisarlo//
-        <Route path="/options" element={<Options />} />
-      </Routes>
-
-      <nav>
-        <ul>
-          <li>
-            <Link>
-            </Link>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 }

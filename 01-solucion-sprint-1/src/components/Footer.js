@@ -1,19 +1,19 @@
-import "../styles/Header.scss";
-import { Link, Route } from 'react-router-dom';
+import "../styles/Footer.scss";
+import { NavLink, Route } from 'react-router-dom';
 function Footer() {
     return (
         <footer class="footer">
             <nav>
                 <ul>
                     <li class="footer__menu-item">
-                        <a class="footer__menu-link" href="#/">A jugar</a>
+                        <NavLink class="footer__menu-link" to="/">A jugar</NavLink>
                     </li>
                     <li class="footer__menu-item">
-                        <a class="footer__menu-link active" href="#/instructions"
-                        >¿Cómo se juega?</a>
+                        <NavLink class="footer__menu-link active" to="/instructions"
+                        >¿Cómo se juega?</NavLink>
                     </li>
                     <li class="footer__menu-item">
-                        <Link class="footer__menu-link" to={'/options/'}>Más opciones</Link>
+                        <NavLink className="footer__menu-link" to={'/options/'}>Más opciones</NavLink>
                     </li>
                 </ul>
             </nav>
