@@ -17,6 +17,7 @@ import Form from './Form.js';
 import Footer from './Footer.js';
 import Options from './Options.js';
 import Main from './Main.js';
+import Instructions from './Instructions.js';
 
 function App() {
   const [word, setWord] = useState('');
@@ -63,6 +64,7 @@ function App() {
             lastLetter={lastLetter}
             handleLastLetter={handleLastLetter} />} />
           <Route path="/options" element={<Options />} />
+          <Route path="/instructions" element={<Instructions />} />
         </Routes>
         <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
