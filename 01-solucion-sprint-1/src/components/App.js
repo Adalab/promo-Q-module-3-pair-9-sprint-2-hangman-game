@@ -18,15 +18,18 @@ import Footer from './Footer.js';
 import Options from './Options.js';
 import Main from './Main.js';
 import Instructions from './Instructions.js';
+import Loading from './Loading.js';
 
 function App() {
   const [word, setWord] = useState('');
   const [userLetters, setUserLetters] = useState([]);
   const [lastLetter, setLastLetter] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getWordFromApi().then((word) => {
       setWord(word);
+      setIsLoading(false);
     });
   }, []);
 
@@ -56,6 +59,7 @@ function App() {
 
   return (
     <div className='page'>
+      <Loading isLoading={isLoading} />
       <Header />
 
       <main className='main'>
