@@ -1,4 +1,9 @@
-function Options() {
+function Options(props) {
+    const handleChange = (ev) => {
+        ev.preventDefault();
+        props.setWord(ev.target.value);
+
+    }
     return (
         <form>
             <label className="title" htmlFor="word">
@@ -12,6 +17,7 @@ function Options() {
                 type="text"
                 id="word"
                 name="word"
+                onChange={handleChange}
             />
         </form>
     )

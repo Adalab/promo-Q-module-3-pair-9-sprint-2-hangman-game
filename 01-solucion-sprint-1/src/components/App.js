@@ -63,7 +63,7 @@ function App() {
           <Route path="/" element={<Main word={word} userLetters={userLetters}
             lastLetter={lastLetter}
             handleLastLetter={handleLastLetter} />} />
-          <Route path="/options" element={<Options />} />
+          <Route path="/options" element={<Options setWord={setWord} />} />
           <Route path="/instructions" element={<Instructions />} />
         </Routes>
         <Dummy numberOfErrors={getNumberOfErrors()} />
